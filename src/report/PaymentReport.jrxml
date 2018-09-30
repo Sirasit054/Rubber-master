@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f680da0-3832-4eb9-a8a6-1dcff6fec3ea">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="130"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="Table Dataset 1" uuid="b39ce067-6a98-4242-bc04-895b0b477e88"/>
+	<queryString>
+		<![CDATA[select *
+from rubberdata.payment natural join rubberdata.customer]]>
+	</queryString>
+	<field name="CustomerID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BuySheetID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date_SH" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DatePrice_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="P_RubberSheet" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Weight_SH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount_SH" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BuyStatus_SH" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UserID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerLastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerNickname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="BuySheetID_1" class="java.lang.Integer" resetType="Page" calculation="First">
+		<variableExpression><![CDATA[$F{BuySheetID}]]></variableExpression>
+	</variable>
+	<variable name="Date_SH_1" class="java.lang.Integer" resetType="Column" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{Date_SH}]]></variableExpression>
+	</variable>
+	<variable name="Amount_SH_1" class="java.lang.Integer" calculation="Average">
+		<variableExpression><![CDATA[$F{Amount_SH}]]></variableExpression>
+	</variable>
+	<variable name="Amount_SH_2" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_SH}]]></variableExpression>
+	</variable>
+	<variable name="BuySheetID_2" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{BuySheetID}]]></variableExpression>
+	</variable>
+	<variable name="CustomerID_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{CustomerID}]]></variableExpression>
+	</variable>
+	<variable name="Amount_SH_3" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_SH}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="122" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="0" width="114" height="34" forecolor="#666666" uuid="425f97b0-6ee8-452d-b717-25422566c6aa"/>
+				<textElement>
+					<font fontName="Angsana New" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ใบเสร็จชำระเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="55" width="95" height="16" uuid="502a7d18-126e-44c0-9fd0-6cc202cd4bcd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[อรุณการยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="71" width="262" height="20" uuid="f68fec82-2459-41db-92bc-904fa30506c0"/>
+				<text><![CDATA[16 ม.2 ต.ช้างกลาง อ.ช้างกลาง จ.นครศรีธรรมราช 80250]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="91" width="135" height="20" uuid="a17ce4d5-ecb3-4bb8-8804-5cabb723676a"/>
+				<text><![CDATA[โทรศัพท์ 0884500617]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="118" width="555" height="1" uuid="37df8efe-dd2c-404f-93d4-95574261e769"/>
+			</line>
+			<textField>
+				<reportElement x="448" y="35" width="100" height="20" uuid="b30287c8-05c9-4d32-b5ec-0f5190b937a3"/>
+				<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="0" width="63" height="20" uuid="d6908397-319d-475c-b2ba-34c00a43e448"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[รหัสลูกค้า]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="0" width="60" height="20" uuid="7a12fc53-bf06-4e57-bdc5-f1fd85594382"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อพนักงาน]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="83" y="0" width="100" height="20" uuid="60f44824-1b89-449c-afc3-a44f3cbe8931"/>
+				<textFieldExpression><![CDATA[$F{CustomerID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="0" width="100" height="20" uuid="fcf5f796-0411-41fc-9113-efb1ac36576b"/>
+				<textFieldExpression><![CDATA[$F{UserID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="20" width="28" height="20" uuid="7f47b76e-201b-450a-bce1-a3a71a9c1010"/>
+				<textFieldExpression><![CDATA[$F{CustomerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="20" width="31" height="20" uuid="03cd70af-e71c-433d-94fe-ec1873b6b63c"/>
+				<textFieldExpression><![CDATA[$F{CustomerLastname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="40" width="100" height="20" uuid="1ea4bea7-549c-4e42-b714-3e122cad969a"/>
+				<textFieldExpression><![CDATA[$F{CustomerNickname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="60" width="100" height="20" uuid="c58d3411-d567-47da-aa42-37225adbb9f4"/>
+				<textFieldExpression><![CDATA[$F{CustomerAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="20" width="62" height="20" uuid="b03efed9-0cb5-4222-9acb-8d3a55d01e78"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อลูกค้า]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="40" width="62" height="20" uuid="1e7f2c3f-ee97-4e30-8f62-cadbbe0ec20f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อเล่น]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="60" width="100" height="20" uuid="760dbe8e-29a1-47e0-8c49-8a32823d3ea4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ที่อยู่]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="15" width="66" height="20" uuid="9e3dfaa6-4c58-4135-be84-ff9bbae25a1c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[รหัสการซื้อ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="15" width="37" height="20" uuid="5a9f0bd8-cd34-49fa-8087-c9bb6e8a1e42"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[วันที่ซื้อ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="15" width="57" height="20" uuid="3944b644-3680-4173-83eb-68263036e32e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[น้ำหนักยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="15" width="50" height="20" uuid="815dc9b1-0f65-44a6-9b7b-0c83bf352072"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ราคายาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="15" width="100" height="20" uuid="3271902f-dd29-4a7f-a0cd-423f658472e9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="454" y="14" width="62" height="20" uuid="3dfcc342-f084-495f-9105-080ad6a55c9b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[สถานนะ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="34" width="555" height="1" uuid="a3a1fe5f-601f-49ba-ad20-f7eeee2294ee"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="af5dab28-f9fa-41dc-a2c8-b805ac12129d"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="63" height="20" uuid="33be8352-60ed-49f5-847b-844a9ce7cc97"/>
+				<textFieldExpression><![CDATA[$F{BuySheetID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="37" height="20" uuid="3546fb0e-2748-4471-99e8-4908e5cedc88"/>
+				<textFieldExpression><![CDATA[$F{Date_SH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="0" width="43" height="20" uuid="259c01ed-1cd7-453e-a6d8-1cb8b198250f"/>
+				<textFieldExpression><![CDATA[$F{Weight_SH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="33" height="20" uuid="df28f596-a4e8-4cfc-b01b-c44ed8650d3c"/>
+				<textFieldExpression><![CDATA[$F{P_RubberSheet}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="4" width="64" height="20" uuid="0201ff1a-76c8-41ca-a498-d5827f2f104f"/>
+				<textFieldExpression><![CDATA[$F{Amount_SH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="454" y="4" width="85" height="20" uuid="ce348d69-80af-45d3-a9d5-07749f7f9acb"/>
+				<textFieldExpression><![CDATA[$F{BuyStatus_SH}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="312" y="10" width="100" height="20" uuid="2c4e11f9-fe03-4ea5-aef9-95bd228a327c"/>
+				<text><![CDATA[รวมจำนวนเงินทั้งหมด]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="69120744-8f79-45d8-8456-5f5655864205"/>
+			</line>
+			<staticText>
+				<reportElement x="487" y="10" width="100" height="20" uuid="4c7c8c10-08bb-4a76-beff-e9240f4ef8e3"/>
+				<textElement>
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="428" y="10" width="71" height="20" uuid="18984e99-a8c3-4996-80a5-e547795a6d7a"/>
+				<textFieldExpression><![CDATA[$V{Amount_SH_3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

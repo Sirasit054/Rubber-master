@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efca98f3-40aa-4a23-935f-4ecff1279669">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="55"/>
+	<parameter name="IDcus" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM customer
+natural join buylatex
+
+
+where customer.CustomerID = $P{IDcus}]]>
+	</queryString>
+	<field name="CustomerID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerLastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerNickname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Gargen" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Birthday" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BuyLatexID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date_LA" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DatePrice_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="P_Latex" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Weight_LA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Percent_LA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount_LA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BuyStatus" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UserID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SaleID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="AmountSale_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="Amlatex" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_LA}]]></variableExpression>
+	</variable>
+	<variable name="Amount_LA_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_LA}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="0" width="444" height="79" uuid="d58a2e6b-4cbc-46dc-b6b3-093e30895585"/>
+				<textElement>
+					<font fontName="TH Sarabun New" size="48"/>
+				</textElement>
+				<text><![CDATA[รายงานรับซื้อน้ำยาง(ลูกค้า)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="86" y="65" width="391" height="1" forecolor="#000000" backcolor="#00FFFF" uuid="fef7d355-fa2b-4d45-9deb-71a35007a83b"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="74" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="73" width="555" height="1" uuid="4a105ed1-0028-4a09-aa62-88c35c1bdf4d"/>
+			</line>
+			<staticText>
+				<reportElement x="364" y="0" width="100" height="20" uuid="9cf4cece-3b40-4e3c-8371-a57fee4e0db9"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อลูกค้า]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="32" width="154" height="20" uuid="bfe11c83-36b3-42ce-9772-f843710a6d93"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CustomerName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="32" width="271" height="20" uuid="9ecacb8e-d49a-4002-9f47-428a3f92e570"/>
+				<text><![CDATA[16 ม.2 ต.ช้างกลาง อ.ช้างกลาง จ.นครศรีธรรมราช 80250]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="158" height="32" uuid="838901a9-9c8f-4ccd-aa2f-c0c87b331d2c"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[อรุณการยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="52" width="160" height="20" uuid="739d2370-aa4c-4a40-9818-69cb66c9677a"/>
+				<text><![CDATA[โทรศัพท์ 0884500617]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="16" width="555" height="20" backcolor="#CCCCCC" uuid="8965b4ef-5ea7-44f4-a992-6bb124edaed1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="11" y="16" width="75" height="20" uuid="a186b2fb-5503-43ca-9203-97fe510eb57d"/>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="16" width="81" height="20" uuid="f263cd3c-d746-4abb-8718-d1e4adfc401d"/>
+				<text><![CDATA[ราคาน้ำยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="192" y="16" width="100" height="20" uuid="d61f9a16-e980-4ce1-a505-6dec59653d10"/>
+				<text><![CDATA[น้ำหนักยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="16" width="100" height="20" uuid="ce67d413-a5b5-49d9-b28b-adcc08071a7b"/>
+				<text><![CDATA[เปอร์เซนยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="16" width="100" height="20" uuid="6e2f76cb-c6e5-4adb-bb98-b00eb73ec481"/>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="514" y="10" width="41" height="20" uuid="0472d5e7-b582-4a58-b46b-5aab3c055744"/>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="10" width="75" height="20" uuid="96cb8c11-759f-4ed7-bf99-c1e852bf605e"/>
+				<textFieldExpression><![CDATA[$F{Date_LA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="10" width="67" height="20" uuid="4f325cad-9616-40e2-9bee-aa05bb4e500c"/>
+				<textFieldExpression><![CDATA[$F{P_Latex}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="192" y="10" width="79" height="20" uuid="77e5ac23-595e-4711-8a6b-fbbb32d99326"/>
+				<textFieldExpression><![CDATA[$F{Weight_LA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="10" width="82" height="20" uuid="45e815c7-8102-4e4c-83ef-6d04b672b9d1"/>
+				<textFieldExpression><![CDATA[$F{Percent_LA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="10" width="100" height="20" uuid="81fe23b8-1f46-4190-9391-98c2844a13c6"/>
+				<textFieldExpression><![CDATA[$F{Amount_LA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="234" y="41" width="130" height="31" uuid="2c8e2a5f-b547-4dcb-8631-991a75f86f42"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ยอดรวมซื้อยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="41" width="100" height="20" uuid="4be7244c-d3d6-454f-b0b5-fee8ae847286"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="12a6fe7b-9f55-4cea-9fa1-eef914553027"/>
+			</line>
+			<line>
+				<reportElement x="0" y="71" width="555" height="1" uuid="b566b34c-de34-497a-9573-9249a8880134"/>
+			</line>
+			<textField>
+				<reportElement x="374" y="30" width="100" height="41" forecolor="#FF3300" uuid="bf7d34d8-dcc9-4780-a286-34a043ada2fa"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Amount_LA_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="28" splitType="Stretch"/>
+	</summary>
+</jasperReport>

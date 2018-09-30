@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efca98f3-40aa-4a23-935f-4ecff1279669">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="81"/>
+	<parameter name="IDsale" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[new  Integer(0)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM buyrubberscraps
+LEFT JOIN customer ON (buyrubberscraps.CustomerID=customer.CustomerID)
+
+
+where customer.CustomerID = $P{IDsale}]]>
+	</queryString>
+	<field name="BuyScrapsID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date_SC" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DatePrice_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="P_RubberScraps" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Weight_SC" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Amount_SC" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BuyStatus_ID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UserID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="time" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SaleID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerLastname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerNickname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CustomerAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Gargen" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Birthday" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="AmountSale_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="sracps" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_SC}]]></variableExpression>
+	</variable>
+	<variable name="Amount_SC_1" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{Amount_SC}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="111" y="12" width="444" height="67" uuid="d58a2e6b-4cbc-46dc-b6b3-093e30895585"/>
+				<textElement>
+					<font fontName="TH Sarabun New" size="48"/>
+				</textElement>
+				<text><![CDATA[รายงานรับซื้อเศษยาง]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="65" width="555" height="1" forecolor="#000000" backcolor="#00FFFF" uuid="fef7d355-fa2b-4d45-9deb-71a35007a83b"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="99" splitType="Stretch">
+			<line>
+				<reportElement x="-9" y="98" width="564" height="1" uuid="4a105ed1-0028-4a09-aa62-88c35c1bdf4d"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="62" width="160" height="20" uuid="7d0f3a48-b9af-401c-96e6-529b5931889c"/>
+				<text><![CDATA[โทรศัพท์ 0884500617]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="158" height="32" uuid="3614d0f9-1271-4500-ae1a-c2cccaee8291"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[อรุณการยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="42" width="271" height="20" uuid="51c6e499-2ad6-4bdc-9631-10fc068462b6"/>
+				<text><![CDATA[16 ม.2 ต.ช้างกลาง อ.ช้างกลาง จ.นครศรีธรรมราช 80250]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="22" width="100" height="20" uuid="9ff194ac-c032-4513-a00f-ee12cbf39f8c"/>
+				<text><![CDATA[ชื่อลูกค้า]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="418" y="42" width="100" height="20" uuid="c2a8544c-af56-4997-9863-33784c224488"/>
+				<textFieldExpression><![CDATA[$F{CustomerName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="16" width="555" height="20" backcolor="#CCCCCC" uuid="5fd93ed2-576c-472a-a467-2d554375bece"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="16" width="100" height="20" uuid="0af5ffe4-2887-4f1b-b428-cf162e4a3f39"/>
+				<text><![CDATA[รอบที่ขาย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="16" width="100" height="20" uuid="0fad5808-5754-48ef-b38d-931d9223f187"/>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="16" width="100" height="20" uuid="4dadf0c4-2f1f-4b48-9768-697c1479d89f"/>
+				<text><![CDATA[จำนวนเงิน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="16" width="100" height="20" uuid="adf85b38-cab3-4425-9c51-92d724007cfa"/>
+				<text><![CDATA[ราคาเศษยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="16" width="100" height="20" uuid="0bf97d20-3be7-4828-b05c-2c0b03d766e3"/>
+				<text><![CDATA[น้ำหนัก]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="505" y="10" width="41" height="20" uuid="0472d5e7-b582-4a58-b46b-5aab3c055744"/>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="10" width="53" height="20" uuid="4abd1eaf-1921-437f-810c-6318cdb103f7"/>
+				<textFieldExpression><![CDATA[$F{SaleID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="10" width="60" height="20" uuid="445f0521-8717-417f-89f2-2123a6d8f073"/>
+				<textFieldExpression><![CDATA[$F{Date_SC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="10" width="52" height="20" uuid="ac046245-4c22-4d03-9d2b-1f2a80e0dfba"/>
+				<textFieldExpression><![CDATA[$F{P_RubberScraps}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="10" width="78" height="20" uuid="63380d57-b9d9-4a4c-80dd-9cde7f44d2aa"/>
+				<textFieldExpression><![CDATA[$F{Weight_SC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="10" width="100" height="20" uuid="26c46784-c31b-46ae-87e1-037011c7bca3"/>
+				<textFieldExpression><![CDATA[$F{Amount_SC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="234" y="41" width="130" height="31" uuid="2c8e2a5f-b547-4dcb-8631-991a75f86f42"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ยอดเงินซื้อเศษยาง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="41" width="100" height="20" uuid="4be7244c-d3d6-454f-b0b5-fee8ae847286"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[บาท]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" uuid="12a6fe7b-9f55-4cea-9fa1-eef914553027"/>
+			</line>
+			<line>
+				<reportElement x="0" y="71" width="555" height="1" uuid="b566b34c-de34-497a-9573-9249a8880134"/>
+			</line>
+			<textField>
+				<reportElement x="377" y="30" width="113" height="41" forecolor="#FF3300" uuid="4521f59d-49fd-4ff3-bfaf-bb8fe701904e"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Amount_SC_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="28" splitType="Stretch"/>
+	</summary>
+</jasperReport>
